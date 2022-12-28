@@ -1,0 +1,47 @@
+class node():
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+class tree:
+    def __init__(self,root):
+        self.root=root
+    def inser(self,root,data):
+        if root==None:
+            return node(data)
+        
+        elif root.data<data:
+            root.right=n.inser(root.right,data)
+        elif root.data>data:
+            root.left=n.inser(root.left,data)
+        return root
+        
+    def inorder(self,root):
+        if root:
+            n.inorder(root.left)
+            print(root.data)
+            n.inorder(root.right)
+    def preorder(self,root):
+        if root:
+            print(root.data)
+            n.inorder(root.left)
+            n.inorder(root.right)
+    def postorder(self,root):
+        if root:
+            n.inorder(root.left)
+            n.inorder(root.right)
+            print(root.data)
+    
+    
+m=node(34)
+n=tree(m)
+l=[32,67,31,90,65,45,12,4]
+for i in l:
+    #print("dun",m,i)
+    n.inser(m,i)
+print("inorder")
+n.inorder(m)
+print("preorder")
+n.preorder(m)
+print("postorder")
+n.postorder(m)
