@@ -1,0 +1,15 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+      //  int k=nums.length
+        int sum=((nums.length)*(nums.length+1))/2;
+    
+         int now=0;
+        for (int i=0;i<nums.length;i++)
+        {
+            now+=nums[i];
+        }
+        //System.out.print(now+' '+sum);
+        return sum-now;
+        
+    }
+}
