@@ -1,0 +1,27 @@
+class Solution {
+    public int trap(int[] height) {
+      //  System.out.println(height.length);
+       int result=0;
+        int [] leftHeight=new int[height.length];
+        int [] rightHeight=new int[height.length];
+        leftHeight[0]=height[0];
+        rightHeight[height.length-1]=height[height.length-1];
+        //int [] rightHeight=new int[height.length];
+        for (int i=1;i<height.length;i++)
+        {
+            leftHeight[i]=Math.max(height[i],leftHeight[i-1]);
+        }
+        for (int i=height.length-2;i>=0;i--)
+        {   //System.out.printf("  %d %d %d\n ",i,height[i],rightHeight[i]);    
+            rightHeight[i]=Math.max(height[i],rightHeight[i+1]);
+        }
+        for (int i=0;i<height.length;i++)
+        {
+            result+=(Math.min(leftHeight[i],rightHeight[i])-height[i]);
+        }
+       //System.out.println(Arrays.toString(leftHeight));
+        //System.out.println(Arrays.toString(rightHeight));
+        //System.out.println(Arrays.toString(height));
+        return result;
+    }
+}
