@@ -1,0 +1,18 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int single=nums[0];
+        int duble=nums[0];
+            
+do{
+    single=nums[single];
+    duble=nums[nums[duble]];
+}while(single!=duble);
+single=nums[0];
+while(single!=duble)
+{
+    single=nums[single];
+    duble=nums[duble];
+}
+return single;
+    }
+}
